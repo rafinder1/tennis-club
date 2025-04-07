@@ -9,22 +9,18 @@ The following tools are used to lint and format the code in this project:
 ### 1. **Black**
    - **Purpose**: A code formatter that automatically formats Python code to conform to the PEP 8 style guide with some extra flexibility.
    - **Configuration**: The line length is set to 88 characters, and the target Python version is set to `py312` (Python 3.12).
-   - **Command**: `black --line-length=88 --target-version=py312`
 
 ### 2. **isort**
    - **Purpose**: A tool to sort imports in Python files according to a consistent style.
    - **Configuration**: The sorting style follows the `black` profile to maintain uniformity with the `black` code formatter.
-   - **Command**: `isort --profile black`
 
 ### 3. **Flake8**
    - **Purpose**: A linting tool for Python that checks for coding style violations, errors, and potential issues in the codebase.
    - **Configuration**: The maximum line length is set to 88 characters. Warnings `E203` (whitespace before a colon) and `W503` (line break before binary operator) are ignored to avoid conflicts with `black`'s formatting style.
-   - **Command**: `flake8 --max-line-length=88 --extend-ignore=E203,W503`
 
 ### 4. **Mypy**
    - **Purpose**: A static type checker for Python. It helps ensure that the code adheres to type hints and can catch type-related bugs early.
    - **Configuration**: Mypy is configured to ignore missing imports and uses Python 3.12 for type checking.
-   - **Command**: `mypy --python-version=3.12 --ignore-missing-imports`
 
 ## Pre-commit Hooks
 
