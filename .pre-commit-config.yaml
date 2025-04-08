@@ -20,6 +20,7 @@ repos:
     rev: v1.15.0
     hooks:
       - id: mypy
+        exclude: ^.*\b(migrations)\b.*$
         args: ["--python-version=3.12", "--ignore-missing-imports"]
 
   - repo: local
@@ -29,6 +30,7 @@ repos:
         entry: poetry run pylint
         language: system
         types: [ python ]
+        exclude: ^.*\b(migrations)\b.*$
         args:
           [
             "-rn",
