@@ -1,13 +1,36 @@
+[tool.poetry]
+name = "my_tennis_club"
+version = "0.0.1"
+description = ""
+authors = ["rafal <rafpro33@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+Django = "^5.2"
+python-dotenv = "^1.1.0"
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^4.2.0"
+black = "^25.1.0"
+isort = "^5.12.0"
+flake8 = "^6.1.0"
+mypy = "^1.15.0"
+pylint = "^3.3.6"
+pylint-django = "^2.6.1"
+
 [tool.black]
-line-length = 88
+line-length = 100
 target-version = ["py312"]
 
 [tool.isort]
-profile = "black"
+profile = "django"
 
 [tool.flake8]
-max-line-length = 88
+max-line-length = 100
 extend-ignore = ["E203", "W503"]
+
+[tool.djlint]
+profile = "django"
 
 [tool.mypy]
 python_version = "3.12"

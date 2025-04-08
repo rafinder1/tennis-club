@@ -3,19 +3,37 @@ repos:
     rev: 25.1.0
     hooks:
       - id: black
-        args: ["--line-length=88", "--target-version=py312"]
+        args: ["--line-length=100", "--target-version=py312"]
 
   - repo: https://github.com/PyCQA/flake8
     rev: 7.2.0
     hooks:
       - id: flake8
+        args: ['--max-line-length=100']
 
   - repo: https://github.com/timothycrosley/isort
     rev: 6.0.1
     hooks:
       - id: isort
+
   - repo: https://github.com/pre-commit/mirrors-mypy
     rev: v1.15.0
     hooks:
       - id: mypy
         args: ["--python-version=3.12", "--ignore-missing-imports"]
+
+  - repo: local
+    hooks:
+      - id: pylint
+        name: pylint
+        entry: poetry run pylint
+        language: system
+        types: [ python ]
+        args:
+          [
+            "-rn",
+            "-sn",
+            "--load-plugins=pylint_django",
+            "--django-settings-module=my_tennis_club.settings",
+            --ignore=manage.py,
+          ]
