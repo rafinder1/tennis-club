@@ -42,9 +42,9 @@ jobs:
         run: poetry run flake8 --max-line-length=100 --ignore=E203,W503 .
 
       - name: Run mypy
-        run: poetry run mypy .
+        run: poetry run mypy . --exclude '^.*\b(migrations)\b.*$'
 
       - name: Run pylint (Django optimized)
         env:
           DJANGO_SETTINGS_MODULE: my_tennis_club.settings
-        run: poetry run pylint --load-plugins pylint_django --ignore=manage.py $(git ls-files '*.py')
+        run: poetry run pylint --load-plugins pylint_django --ignore=manage.py $(git ls-files -- '*.py' ':!:**/migrations/*.py')
