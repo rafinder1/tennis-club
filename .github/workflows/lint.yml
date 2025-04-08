@@ -47,5 +47,4 @@ jobs:
       - name: Run pylint (Django optimized)
         env:
           DJANGO_SETTINGS_MODULE: my_tennis_club.settings
-        run: poetry run pylint --load-plugins pylint_django --ignore=manage.py --disable=all --exclude='^.*\b(migrations)\b.*$' $(git ls-files '*.py')
-
+        run: poetry run pylint --load-plugins pylint_django --ignore=manage.py $(git ls-files -- '*.py' ':!:**/migrations/*.py')
