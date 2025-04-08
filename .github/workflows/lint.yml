@@ -45,4 +45,6 @@ jobs:
         run: poetry run mypy .
 
       - name: Run pylint (Django optimized)
+        env:
+          DJANGO_SETTINGS_MODULE: my_tennis_club.settings
         run: poetry run pylint --load-plugins pylint_django --ignore=manage.py $(git ls-files '*.py')
