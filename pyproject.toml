@@ -8,6 +8,7 @@ authors = ["rafal <rafpro33@gmail.com>"]
 python = "^3.12"
 Django = "^5.2"
 python-dotenv = "^1.1.0"
+whitenoise = "^6.9.0"
 
 [tool.poetry.group.dev.dependencies]
 pre-commit = "^4.2.0"
